@@ -1,0 +1,30 @@
+{
+  "name": "rio2016",
+  "version": "1.0.0",
+  "description": "Rio 2016 olympic games data",
+  "main": "rio2016.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianosferreira/rio2016.git"
+  },
+  "keywords": [
+    "rio2016",
+    "olympic games",
+    "calendar"
+  ],
+  "author": "Adriano Ferreira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrianosferreira/rio2016/issues"
+  },
+  "homepage": "https://github.com/adrianosferreira/rio2016#readme",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "request": "^2.72.0",
+    "request-replay": "^1.0.3",
+    "url": "^0.11.0"
+  }
+}

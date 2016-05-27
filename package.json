@@ -1,6 +1,6 @@
 {
   "name": "rio2016",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Rio 2016 olympic games data",
   "main": "rio2016.js",
   "scripts": {

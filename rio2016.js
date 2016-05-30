@@ -36,14 +36,14 @@ exports.calendar = function(mode, lang, callback ){
 					sport = $( this ).find( sportName ).text().trim();
 					sportEvent = $( this ).find( sportsDay ).slice( index + 1 ).first().find( 'span' ).attr( 'class' );
 					if( sportEvent ){
-						if( sportEvent.search( 'medal' ) > 0 ){
-							sportJSON[sport] = 'medal';
+						if( sportEvent.search( "medal" ) > 0 ){
+							sportJSON[sport] = "medal";
 						}
-						if( sportEvent.search( 'competition' ) > 0 ){
-							sportJSON[sport] = 'competition';
+						if( sportEvent.search( "competition" ) > 0 ){
+							sportJSON[sport] = "competition";
 						}
-						if( sportEvent.search( 'star' ) > 0 ){
-							sportJSON[sport] = 'cerimony';
+						if( sportEvent.search( "star" ) > 0 ){
+							sportJSON[sport] = "cerimony";
 						}
 					}
 				});
@@ -67,7 +67,7 @@ exports.calendar = function(mode, lang, callback ){
 					calendar = JSON.parse( data )
 					for (var i = 0; i < calendar.length; i++) {
 						if( calendar[i]['day'] == mode )
-							callback( calendar[i]['events'] );
+							callback( JSON.stringify( calendar[i]['events'] ) );
 					}
 				});	
 			}

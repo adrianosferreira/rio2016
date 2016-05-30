@@ -1,2 +1,4 @@
 node_modules
 .DS_Store
+app.js
+calendar.json

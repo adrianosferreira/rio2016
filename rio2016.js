@@ -55,14 +55,14 @@ exports.calendar = function(mode, lang, callback ){
 			fs.writeFile( 'calendar.json', JSON.stringify( calendar ), "utf8" );
 
 			if( mode == 'full' ){
-				fs.readFile( './calendar.json', 'utf8', ( err, data ) => {
+				fs.readFile( './calendar.json', 'utf8', function(err, data){
 					if( err ) callback( err );
 					callback( data );
 				});
 			}
 
 			if( !isNaN( mode ) ){
-				fs.readFile( './calendar.json', 'utf8', ( err, data ) => {
+				fs.readFile( './calendar.json', 'utf8', function(err, data){
 					if( err ) callback( err );
 					calendar = JSON.parse( data )
 					for (var i = 0; i < calendar.length; i++) {

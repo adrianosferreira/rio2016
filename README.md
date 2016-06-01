@@ -134,3 +134,202 @@ JSON output:
    "Weightlifting":"medal"
 }
 ```
+
+###sport( mode, lang, [ callback( obj ) ] )
+It gets the olympic sports data from the official site and returns it as a JSON object.
+
+####Arguments
+
+* **mode**: "all" to retrieve data of all sports or a sport name ("boxing") to retrieve from a specific one
+* **lang**: pt_br, es, fr, en
+* **callback**: callback carrying the JSON object
+
+##Examples
+
+Retrieving the full list of sports in brazilian portuguese:
+
+```javascript
+var rio2016 = require( 'rio2016' );
+
+rio2016.sport( 'all', 'pt_br', function( obj ){
+   console.log( obj );
+});
+```
+
+JSON output:
+
+```JSON
+[
+   {
+      "name":"Badminton",
+      "description":"Com petecas que podem voar a 400 km/h, o badminton exige reflexos rápidos dos jogadores – e atenção máxima do público. O esporte, que estreou em Barcelona 1992, tem torneios masculinos e femininos, individuais e de duplas, além de duplas mistas.",
+      "records":{
+         "male":[
+            {
+               "name":"Dong-Moon Kim",
+               "nationality":"KOR",
+               "gold":"2",
+               "silver":"0",
+               "bronze":"1"
+            },
+            {
+               "name":"Lin Dan",
+               "nationality":"CHN",
+               "gold":"2",
+               "silver":"0",
+               "bronze":"0"
+            },
+            {
+               "name":"Jun Zhang",
+               "nationality":"CHN",
+               "gold":"2",
+               "silver":"0",
+               "bronze":"0"
+            }
+         ],
+         "female":[
+            {
+               "name":"Ling Gao",
+               "nationality":"CHN",
+               "gold":"2",
+               "silver":"1",
+               "bronze":"1"
+            },
+            {
+               "name":"Young-Ah Gil",
+               "nationality":"KOR",
+               "gold":"1",
+               "silver":"1",
+               "bronze":"1"
+            },
+            {
+               "name":"Zhao Yunlei",
+               "nationality":"CHN",
+               "gold":"2",
+               "silver":"0",
+               "bronze":"0"
+            }
+         ]
+      }
+   },
+   {
+      "name":"Atletismo",
+      "description":"Corrida, saltos, lançamentos e arremessos. Um dos esportes mais tradicionais dos Jogos Olímpicos, o atletismo é disputado desde Atenas 1896, primeira edição da era moderna. É, hoje, o que distribui o maior número de medalhas: 141, sendo 47 de ouro.",
+      "records":{
+         "male":[
+            {
+               "name":"Paavo Nurmi",
+               "nationality":"FIN",
+               "gold":"9",
+               "silver":"3",
+               "bronze":"0"
+            },
+            {
+               "name":"Carl Lewis",
+               "nationality":"USA",
+               "gold":"9",
+               "silver":"1",
+               "bronze":"0"
+            },
+            {
+               "name":"Ray Ewry",
+               "nationality":"USA",
+               "gold":"8",
+               "silver":"0",
+               "bronze":"0"
+            }
+         ],
+         "female":[
+            {
+               "name":"Merlene Ottey-Page",
+               "nationality":"JAM",
+               "gold":"0",
+               "silver":"3",
+               "bronze":"6"
+            },
+            {
+               "name":"Irena Szewinska",
+               "nationality":"POL",
+               "gold":"3",
+               "silver":"2",
+               "bronze":"2"
+            },
+            {
+               "name":"Veronica Campbell-Brown",
+               "nationality":"JAM",
+               "gold":"3",
+               "silver":"2",
+               "bronze":"2"
+            }
+         ]
+      }
+   }
+]
+```
+
+Retrieving Boxing data in english:
+
+```javascript
+var rio2016 = require( 'rio2016' );
+
+rio2016.sport( 'boxing', 'en', function( obj ){
+   console.log( obj );
+});
+```
+
+JSON output:
+
+```JSON
+{
+   "name":"Boxing",
+   "description":"Jabs, crosses, uppercuts... a single punch can make all the difference in boxing. The sport made its Olympic debut at St Louis 1904 and women entered the fray at London 2012. At Rio 2016, there are 13 categories – 10 for men and three for women.",
+   "records":{
+      "male":[
+         {
+            "name":"Teófilo Steveson",
+            "nationality":"CUB",
+            "gold":"3",
+            "silver":"0",
+            "bronze":"0"
+         },
+         {
+            "name":"Lázló Papp",
+            "nationality":"HUN",
+            "gold":"3",
+            "silver":"0",
+            "bronze":"0"
+         },
+         {
+            "name":"Félix Savón",
+            "nationality":"CUB",
+            "gold":"3",
+            "silver":"0",
+            "bronze":"0"
+         }
+      ],
+      "female":[
+         {
+            "name":"Nicola Adams",
+            "nationality":"GBR",
+            "gold":"1",
+            "silver":"0",
+            "bronze":"0"
+         },
+         {
+            "name":"Katie Taylor",
+            "nationality":"IRL",
+            "gold":"1",
+            "silver":"0",
+            "bronze":"0"
+         },
+         {
+            "name":"Claressa Shields",
+            "nationality":"USA",
+            "gold":"1",
+            "silver":"0",
+            "bronze":"0"
+         }
+      ]
+   }
+}
+```

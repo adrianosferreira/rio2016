@@ -20,7 +20,7 @@ It gets the olympic schedule from the official site and returns it as a JSON obj
 * **lang**: pt_br, es, fr, en
 * **callback**: callback carrying the JSON object
 
-##Examples
+###Examples
 
 Retrieving the full calendar in brazilian portuguese:
 
@@ -144,7 +144,7 @@ It gets the olympic sports data from the official site and returns it as a JSON 
 * **lang**: pt_br, es, fr, en
 * **callback**: callback carrying the JSON object
 
-##Examples
+###Examples
 
 Retrieving the full list of sports in brazilian portuguese:
 

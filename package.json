@@ -1,6 +1,6 @@
 {
   "name": "rio2016",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Rio 2016 olympic games data",
   "main": "rio2016.js",
   "scripts": {
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/adrianosferreira/rio2016#readme",
   "dependencies": {
+    "async": "^2.0.1",
     "cheerio": "^0.20.0",
     "request": "^2.72.0",
     "request-replay": "^1.0.3",

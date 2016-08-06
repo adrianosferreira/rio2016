@@ -333,3 +333,66 @@ JSON output:
    }
 }
 ```
+
+###medal( mode, lang, [ callback( obj ) ] )
+It gets the olympic medals from the official site and returns it as a JSON object.
+
+####Arguments
+
+* **mode**: "all" to retrive all countries with the respective medals (countries that already have any medal)
+* **lang**: pt_br, es, fr, en
+* **callback**: callback carrying the JSON object
+
+###Examples
+
+Retrieving all countries medals in portuguese.
+
+```javascript
+var rio2016 = require( 'rio2016' );
+
+rio2016.medal( 'all', 'pt_br', function( obj ){
+   console.log( obj );
+});
+```
+
+JSON output:
+```JSON
+[ { name: 'Bélgica',
+    abr: 'BEL',
+    gold: '1',
+    silver: '0',
+    bronze: '0',
+    total: '1' },
+  { name: 'Cazaquistão',
+    abr: 'KAZ',
+    gold: '0',
+    silver: '0',
+    bronze: '1',
+    total: '1' },
+  { name: 'Polônia',
+    abr: 'POL',
+    gold: '0',
+    silver: '0',
+    bronze: '1',
+    total: '1' } ]
+```
+
+Retrieving medals of Brazil in english
+
+```javascript
+var rio2016 = require( 'rio2016' );
+
+rio2016.medal( 'BRA', 'en', function( obj ){
+   console.log( obj );
+});
+```
+
+JSON output:
+```JSON
+{ name: 'Brazil',
+  abr: 'BRA',
+  gold: '0',
+  silver: '1',
+  bronze: '0',
+  total: '1' }
+```

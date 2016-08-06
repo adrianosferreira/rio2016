@@ -68,6 +68,66 @@ exports.calendar = function(mode, lang, callback ){
 	}));
 }
 
+exports.medal = function( mode, lang, callbackMedal ){
+	switch( lang ){
+		case 'pt_br':
+			url = 'https://www.rio2016.com/quadro-de-medalhas-paises';
+			break;
+		case 'en':
+			url = 'https://www.rio2016.com/en/medal-count-country';
+			break;
+		case 'es':
+			url = 'https://www.rio2016.com/es/medallero-paises';
+			break;
+		case 'fr':
+			url = 'https://www.rio2016.com/fr/tableau-des-medailles-pays';
+			break;
+	}
+
+	countriesJSON = [];
+	replay(request( url, function( err, res, body ){
+		if( err ){
+			callback( err );
+		}else{
+			$ = cheerio.load( body );
+			countryTag = '.table-medal-countries__link-table';
+			countryAbrTag = '.col-2 .country';
+			countryNameTag = '.col-3 .country';
+			goldTag = '.col-4';
+			silverTag = '.col-5';
+			bronzeTag = '.col-6';
+			totalTag = '.col-7 strong';
+
+			$( countryTag ).each(function(index){
+				countryAbr = $( this ).find( countryAbrTag ).text().trim();
+				countryName = $( this ).find( countryNameTag ).text().trim();
+				gold = $( this ).find( goldTag ).text().trim();
+				silver = $( this ).find( silverTag ).text().trim();
+				bronze = $( this ).find( bronzeTag ).text().trim();
+				total = $( this ).find( totalTag ).text().trim();
+
+				countriesJSON.push({
+					name: countryName,
+					abr: countryAbr,
+					gold: gold,
+					silver: silver,
+					bronze: bronze,
+					total: total
+				});
+			});
+
+			if( mode == 'all' ){
+				callbackMedal( JSON.stringify(countriesJSON) );
+			}
+
+			for (var i = 0; i < countriesJSON.length; i++) {
+				if( countriesJSON[i]['abr'] == mode )
+					callbackMedal( JSON.stringify( countriesJSON[i] ) );
+			}
+		}
+	}));
+}
+
 exports.sport = function( mode, lang, callbackSport ){
 	switch( lang ){
 		case 'pt_br':
@@ -96,9 +156,15 @@ exports.sport = function( mode, lang, callbackSport ){
 				$( sports ).each(function( index ){
 					sport = $( this ).find( sportName ).text().trim();
 					page = $( this ).find( sportName ).find( 'a' ).attr( 'href' );
+					page = page.replace( '-calendario-e-resultados', '' );
+					page = page.replace( '-schedule-and-results', '' );
+					page = page.replace( '-calendario-y-resultados', '' );
+					page = page.replace( '-calendrier-et-resultats', '' );
+
 					if( page !== undefined ){
+						var slug = page.replace('/', '');
 						sportURL = base + page.replace( '/', '');
-						sportQueue.push({url: sportURL, name: sport});
+						sportQueue.push({url: sportURL, name: sport, slug: slug});
 					}
 				});
 				callback();
@@ -138,6 +204,7 @@ exports.sport = function( mode, lang, callbackSport ){
 				});
 				sportsJSON.push({
 					name: task.name,
+					slug: task.slug,
 					description: description,
 					records: {
 						male: maleJSON,

@@ -357,24 +357,24 @@ rio2016.medal( 'all', 'pt_br', function( obj ){
 
 JSON output:
 ```JSON
-[ { name: 'Bélgica',
-    abr: 'BEL',
-    gold: '1',
-    silver: '0',
-    bronze: '0',
-    total: '1' },
-  { name: 'Cazaquistão',
-    abr: 'KAZ',
-    gold: '0',
-    silver: '0',
-    bronze: '1',
-    total: '1' },
-  { name: 'Polônia',
-    abr: 'POL',
-    gold: '0',
-    silver: '0',
-    bronze: '1',
-    total: '1' } ]
+[ { "name": "Bélgica",
+    "abr": "BEL",
+    "gold": "1",
+    "silver": "0",
+    "bronze": "0",
+    "total": "1" },
+  { "name": "Cazaquistão",
+    "abr": "KAZ",
+    "gold": "0",
+    "silver": "0",
+    "bronze": "1",
+    "total": "1" },
+  { "name": "Polônia",
+    "abr": "POL",
+    "gold": "0",
+    "silver": "0",
+    "bronze": "1",
+    "total": "1" } ]
 ```
 
 Retrieving medals of Brazil in english
@@ -389,10 +389,10 @@ rio2016.medal( 'BRA', 'en', function( obj ){
 
 JSON output:
 ```JSON
-{ name: 'Brazil',
-  abr: 'BRA',
-  gold: '0',
-  silver: '1',
-  bronze: '0',
-  total: '1' }
+{ "name": "Brazil",
+  "abr": "BRA",
+  "gold": "0",
+  "silver": "1",
+  "bronze": "0",
+  "total": "1" }
 ```
